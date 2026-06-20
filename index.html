@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-gray-50">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopMax - Tienda Online</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Scrollbar oculto para la barra de departamentos en móvil */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+
+  <!-- ============================= -->
+  <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR -->
+  <!-- ============================= -->
+  <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:gap-6">
+
+      <!-- Logo -->
+      <a href="#" class="flex shrink-0 items-center gap-1">
+        <span class="text-2xl font-extrabold tracking-tight text-orange-500">Shop</span>
+        <span class="text-2xl font-extrabold tracking-tight text-gray-900">Max</span>
+      </a>
+
+      <!-- Barra de búsqueda -->
+      <div class="relative flex-1">
+        <input
+          type="search"
+          placeholder="Buscar productos, marcas y más..."
+          class="w-full rounded-full border border-gray-200 bg-gray-100 py-2.5 pl-5 pr-12 text-sm outline-none transition focus:border-orange-400 focus:bg-white focus:ring-2 focus:ring-orange-100"
+        />
+        <button
+          aria-label="Buscar"
+          class="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-orange-500 p-2 text-white transition hover:bg-orange-600"
+        >
+          <!-- Icono lupa -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Iconos derecha -->
+      <div class="flex shrink-0 items-center gap-2 sm:gap-4">
+        <!-- Perfil -->
+        <button aria-label="Perfil de usuario" class="rounded-full p-2 text-gray-700 transition hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </button>
+
+        <!-- Carrito con burbuja -->
+        <button aria-label="Carrito de compras" class="relative rounded-full p-2 text-gray-700 transition hover:bg-gray-100">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span class="absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[11px] font-bold text-white">3</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- 2. BARRA DE DEPARTAMENTOS -->
+    <!-- ============================= -->
+    <nav class="border-t border-gray-100">
+      <ul class="no-scrollbar mx-auto flex max-w-7xl items-center gap-6 overflow-x-auto px-4 py-3 text-sm font-medium whitespace-nowrap">
+        <li><a href="#" class="flex flex-col items-center gap-1 text-gray-700 transition hover:text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-lg">💻</span>Electrónica</a></li>
+        <li><a href="#" class="flex flex-col items-center gap-1 text-gray-700 transition hover:text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-lg">🏠</span>Hogar</a></li>
+        <li><a href="#" class="flex flex-col items-center gap-1 text-gray-700 transition hover:text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-lg">👗</span>Moda</a></li>
+        <li><a href="#" class="flex flex-col items-center gap-1 text-gray-700 transition hover:text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-lg">🧸</span>Juguetes</a></li>
+        <li><a href="#" class="flex flex-col items-center gap-1 text-gray-700 transition hover:text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-lg">🐾</span>Mascotas</a></li>
+        <li><a href="#" class="flex flex-col items-center gap-1 text-gray-700 transition hover:text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-lg">💄</span>Belleza</a></li>
+        <li><a href="#" class="flex flex-col items-center gap-1 text-gray-700 transition hover:text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-50 text-lg">⚽</span>Deportes</a></li>
+        <li><a href="#" class="flex flex-col items-center gap-1 font-semibold text-orange-500">
+          <span class="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg text-white">🔥</span>Ofertas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================= -->
+  <!-- 3. GRID RESPONSIVO DE PRODUCTOS -->
+  <!-- ============================= -->
+  <main class="mx-auto max-w-7xl px-4 py-6">
+    <h1 class="mb-5 text-xl font-bold text-gray-900 sm:text-2xl">Recomendados para ti</h1>
+
+    <div class="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+
+      <!-- Tarjeta de producto (repetida) -->
+      <!-- Producto 1 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p1/400/400" alt="Auriculares inalámbricos" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Auriculares Bluetooth con cancelación de ruido</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$19.99</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 2 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p2/400/400" alt="Reloj inteligente" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Reloj inteligente deportivo resistente al agua</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$24.50</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 3 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p3/400/400" alt="Zapatillas deportivas" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Zapatillas deportivas ligeras para correr</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$32.99</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 4 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p4/400/400" alt="Lámpara LED" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Lámpara LED de escritorio con carga USB</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$14.75</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 5 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p5/400/400" alt="Mochila" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Mochila antirrobo impermeable con puerto USB</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$21.30</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 6 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p6/400/400" alt="Teclado mecánico" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Teclado mecánico RGB para gaming</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$39.99</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 7 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p7/400/400" alt="Botella térmica" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Botella térmica de acero inoxidable 750ml</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$11.99</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 8 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p8/400/400" alt="Set de brochas" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Set de 12 brochas de maquillaje profesional</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$9.45</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 9 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p9/400/400" alt="Juguete educativo" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Bloques de construcción educativos 200 piezas</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$16.80</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+      <!-- Producto 10 -->
+      <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm transition hover:shadow-md">
+        <div class="aspect-square w-full overflow-hidden bg-gray-100">
+          <img src="https://picsum.photos/seed/p10/400/400" alt="Cama para mascotas" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-1 flex-col p-3">
+          <h2 class="line-clamp-2 text-sm text-gray-700">Cama suave y acolchada para perros y gatos</h2>
+          <p class="mt-2 text-lg font-bold text-orange-500">$27.60</p>
+          <button class="mt-auto w-full rounded-full bg-orange-500 py-2 text-sm font-semibold text-white transition hover:bg-orange-600">Añadir al carrito</button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+</body>
+</html>
