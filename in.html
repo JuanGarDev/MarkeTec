@@ -169,7 +169,7 @@
             <div onclick="mostrarVistaVendedor()" class="flex items-center gap-3 bg-gray-50 p-3 rounded-xl mb-6 cursor-pointer hover:bg-gray-100 transition border border-gray-100">
               <div class="h-10 w-10 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-lg shrink-0">M</div>
               <div class="flex-1">
-                <p class="text-sm font-semibold text-gray-800">Juan García G</p>
+                <p class="text-sm font-semibold text-gray-800">Juan García</p>
                 <p class="text-xs text-gray-500">⭐ 4.8/5 • Reputación verificada en MarkeTEC</p>
               </div>
             </div>
@@ -202,8 +202,7 @@
           <div class="h-24 w-24 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-3xl shadow-md mb-4">
             J
           </div>
-          <h2 class="text-xl font-bold text-gray-900">Juan García G</h2>
-          <p class="text-sm text-gray-500 mb-4">Estudiante de Ingeniería</p>
+          <h2 class="text-xl font-bold text-gray-900">Juan García</h2>
           <div class="w-full border-t border-gray-200 pt-4 flex justify-around text-sm font-medium text-gray-600">
             <div>
               <p class="text-gray-900 font-bold text-lg">0</p>
@@ -220,7 +219,7 @@
           <div>
             <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Mis Publicaciones Activas</h3>
             <div class="border border-dashed border-gray-200 rounded-xl p-8 text-center text-gray-500 text-sm">
-              Aún no tienes artículos en venta. ¡Comienza a vender!
+              Aún no tienes artículos en venta ¡Comienza a vender!
             </div>
           </div>
 
@@ -228,8 +227,8 @@
             <h3 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Información de la Cuenta</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm bg-gray-50 p-4 rounded-xl">
               <div>
-                <span class="block text-xs text-gray-400 font-semibold uppercase">Se unió el</span>
-                <span class="text-gray-800 font-medium">01 de Julio de 2026</span>
+                <span class="block text-xs text-gray-400 font-semibold uppercase">Se unió desde</span>
+                <span class="text-gray-800 font-medium">03 de Julio de 2026</span>
               </div>
               <div>
                 <span class="block text-xs text-gray-400 font-semibold uppercase">Estatus</span>
@@ -256,13 +255,13 @@
           <div class="h-24 w-24 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-3xl shadow-md mb-4">
             M
           </div>
-          <h2 class="text-xl font-bold text-gray-900">Juan García G</h2>
+          <h2 class="text-xl font-bold text-gray-900">Juan García</h2>
           <div class="flex items-center gap-1 text-sm font-semibold text-orange-500 mt-1 mb-4">
             <span>⭐ 4.8</span>
             <span class="text-gray-400 font-normal">(28 calificaciones)</span>
           </div>
           <p class="text-xs text-center text-gray-500 bg-orange-50 border border-orange-100 rounded-full px-3 py-1 font-semibold text-orange-600 mb-5">
-            🚀 Vendedor Estrella
+            Vendedor Estrella
           </p>
           <button onclick="abrirChatGlobal()" class="w-full rounded-full bg-orange-500 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600 shadow-md">
             Contactar
@@ -291,7 +290,7 @@
         <div class="flex items-center gap-3 bg-gray-900 p-4 text-white">
           <div class="h-10 w-10 rounded-full bg-orange-500 flex items-center justify-center font-bold text-white shrink-0">M</div>
           <div class="flex-1">
-            <p class="text-sm font-semibold">Juan García G (Vendedor)</p>
+            <p class="text-sm font-semibold">Juan García (Vendedor)</p>
             <p class="text-xs text-gray-400 font-medium">Chat directo desde MarkeTEC</p>
           </div>
           <div id="chat-contexto-producto" class="hidden sm:flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg text-xs max-w-xs">
@@ -315,6 +314,19 @@
     </div>
 
   </div>
+
+  <div id="popup-groseria" class="hidden fixed inset-0 z-[150] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+    <div class="w-full max-w-sm rounded-2xl bg-white p-6 text-center shadow-xl border border-gray-100 transform scale-100 transition-all">
+      <div class="text-4xl mb-3">🫩</div>
+      <h3 class="text-lg font-bold text-gray-950 mb-2">Eres tan predecible</h3>
+      <button onclick="cerrarPopupGroseria()" class="w-full rounded-full bg-gray-900 py-3 text-sm font-semibold text-white transition hover:bg-gray-800 shadow-md">
+        Sí, sí lo soy
+      </button>
+    </div>
+  </div>
+
+
+  <audio id="audio-troll" src="resources/AUDIO_PELIGROSO.mp3" preload="auto"></audio>
 
   <script>
     const clavesValidas = [
@@ -355,7 +367,7 @@
       { id: 3, nombre: 'Silent Hill 2', precio: 4999, imagen: 'resources/im7.jpeg', categoria: 'Consolas', descripcion: 'Edición física de colección para los amantes del survival horror clásico. El disco se encuentra impecable, sin un solo rayón.' },
       { id: 4, nombre: 'Realme Buds Air 7 Pro', precio: 1180, imagen: 'resources/im9.jpeg', categoria: 'Electrónica', descripcion: 'Audífonos inalámbricos con cancelación activa de ruido inteligente de hasta 50dB y autonomía de 40 horas.' },
       { id: 5, nombre: 'Figura decortativa cuervo', precio: 1380, imagen: 'resources/im5.jpeg', categoria: 'Otros', descripcion: 'Elegante escultura decorativa con acabado en negro mate profundo fabricada en resina de alta densidad.' },
-      { id: 6, nombre: 'Figura SpiderMan Tejida', precio: 699, imagen: 'resources/im11.jpeg', categoria: 'Otros', descripcion: 'Amigurumi de tu amigable vecino Spider-Man. Hecho a mano detallando el icónico traje clásico con hilos resistentes.' },
+      { id: 6, font: 'Others', nombre: 'Figura SpiderMan Tejida', precio: 699, imagen: 'resources/im11.jpeg', categoria: 'Otros', descripcion: 'Amigurumi de tu amigable vecino Spider-Man. Hecho a mano detallando el icónico traje clásico con hilos resistentes.' },
       { id: 7, nombre: 'Control Xbox', precio: 1690, imagen: 'resources/im6.jpeg', categoria: 'Consolas', descripcion: 'Control inalámbrico original para Xbox Series X/S y PC. Cuenta con superficies esculpidas y geometría refinada.' },
       { id: 8, nombre: 'Chamarra Alpinestars', precio: 2899, imagen: 'resources/im16.jpeg', categoria: 'Moda', descripcion: 'Chamarra de protección para motociclista con protecciones certificadas desmontables en hombros y codos.' },
       { id: 9, nombre: 'Peluche Kanye Bear', precio: 150, imagen: 'resources/im1.jpeg', categoria: 'Otros', descripcion: 'To Kanye, whit love, Kanye' },
@@ -370,7 +382,7 @@
       { id: 18, nombre: 'Kawasaki Z400', precio: 0, imagen: 'resources/im27.jpeg', categoria: 'Otros', descripcion: 'Motocicleta estilo naked en excelentes condiciones mecánicas. Documentación en regla.' },
       { id: 19, nombre: 'Shampoo Miel', precio: 329, imagen: 'resources/im20.jpeg', categoria: 'Belleza', descripcion: 'Fórmula artesanal orgánica enriquecida con miel natural de abeja y extractos herbales.' },
       { id: 20, nombre: 'USB Killer', precio: 19999, imagen: 'resources/im24.jpeg', categoria: 'Electrónica', descripcion: 'Dispositivo electrónico especializado para pruebas de sobretensión física y auditorías de seguridad.' },
-      { id: 21, nombre: 'Triciclo Electrico', precio: 14950, imagen: 'resources/im25.jpeg', font: 'Others', categoria: 'Otros', descripcion: 'Vehículo eléctrico de tres ruedas ideal para transporte de carga ligera dentro de distancias cortas.' },
+      { id: 21, nombre: 'Triciclo Electrico', precio: 14950, imagen: 'resources/im25.jpeg', categoria: 'Otros', descripcion: 'Vehículo eléctrico de tres ruedas ideal para transporte de carga ligera dentro de distancias cortas.' },
       { id: 22, nombre: 'En Perfectas Condiciones', precio: 19700, imagen: 'resources/im26.jpeg', categoria: 'Otros', descripcion: 'Artículo seminuevo cuidado al extremo, libre de rayones o fallas operativas. Con empaque original.' },
       { id: 23, nombre: 'Playeras personalizadas', precio: 1329, imagen: 'resources/im23.jpeg', categoria: 'Moda', descripcion: 'Paquete de playeras de algodón peinado impresas con técnica de DTF de alta definición.' },
       { id: 24, nombre: 'Playera Taylor Swift', precio: 629, imagen: 'resources/im28.jpeg', categoria: 'Moda', descripcion: 'Playera oficial de diseño exclusivo tipo "The Eras Tour". Algodón ultra suave de alta calidad.' },
@@ -599,6 +611,27 @@
       const mensajeTexto = input.value.trim();
       if (!mensajeTexto) return;
 
+      const palabrasBloqueadas = ["joto", "noob", "bobo", "tonto", "pendejo", "pendeja", "mierda", "puto", "puta", "verga", "cabron", "cabrona", "homosexual", "gay", "estupido", "perro", "puta madre", "hijo de puta", "hijo de la chingada", "chingada", "chingar", "chingon", "chingona", "culero", "culera", "idiota", "imbecil", "tarado", "tarada", "maldito", "maldita", "chinga", "chingar", "chingon", "chingona", "culero", "culera", "idiota", "imbecil", "tarado", "tarada", "maldito", "maldita", "chinga tu madre", "hijo de la chingada", "Putito", "huevos", "madre", "puñal", "puñetas", "Ramero", "Traga", "Puto", "Puta", "Culo", "Culero", "Culeros", "Culera", "Culeras", "Pendejo", "Pendeja", "Pendejos", "Pendejas", "Maricon", "Maricón", "Maricones", "Mariconas"];
+      const mensajeMinuscula = mensajeTexto.toLowerCase();
+
+      const contieneGroseria = palabrasBloqueadas.some(palabra => {
+        const regex = new RegExp(`\\b${palabra}\\b|${palabra}`, 'i');
+        return regex.test(mensajeMinuscula);
+      });
+
+      if (contieneGroseria) {
+        input.value = '';
+        document.getElementById('popup-groseria').classList.remove('hidden');
+        
+        const audio = document.getElementById('audio-troll');
+          if (audio) {
+            audio.volume = 1.0;     // Sube el volumen del reproductor interno al máximo
+            audio.currentTime = 0;  // Reinicia el track por si vuelven a escribir otra mala palabra
+            audio.play().catch(error => console.log("El navegador bloqueó el autoplay:", error));
+          }
+        return;
+      }
+
       const cajaMensajes = document.getElementById('chat-mensajes');
 
       cajaMensajes.innerHTML += `
@@ -610,6 +643,15 @@
       `;
       input.value = '';
       scrollChatAlFinal();
+    }
+
+    function cerrarPopupGroseria() {
+      document.getElementById('popup-groseria').classList.add('hidden');
+      const audio = document.getElementById('audio-troll');
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
     }
 
     function scrollChatAlFinal() {

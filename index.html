@@ -325,6 +325,8 @@
     </div>
   </div>
 
+  <audio id="audio-troll" src="resources\AUDIO_PELIGROSO.mp3" preload="auto"></audio>
+  
   <script>
     const clavesValidas = [
       "2026451000", "2026451001", "2026451002", "2026451003", "2026451004", "2026451005", 
@@ -608,7 +610,7 @@
       const mensajeTexto = input.value.trim();
       if (!mensajeTexto) return;
 
-      const palabrasBloqueadas = ["joto", "noob", "bobo", "tonto", "pendejo", "pendeja", "mierda", "puto", "puta", "verga", "cabron", "cabrona", "homosexual", "gay", "estupido", "perro", "puta madre", "hijo de puta", "hijo de la chingada", "chingada", "chingar", "chingon", "chingona", "culero", "culera", "idiota", "imbecil", "tarado", "tarada", "maldito", "maldita"];
+      const palabrasBloqueadas = ["joto", "noob", "bobo", "tonto", "pendejo", "pendeja", "mierda", "puto", "puta", "verga", "cabron", "cabrona", "homosexual", "gay", "estupido", "perro", "puta madre", "hijo de puta", "hijo de la chingada", "chingada", "chingar", "chingon", "chingona", "culero", "culera", "idiota", "imbecil", "tarado", "tarada", "maldito", "maldita", "chinga", "chingar", "chingon", "chingona", "culero", "culera", "idiota", "imbecil", "tarado", "tarada", "maldito", "maldita", "chinga tu madre", "hijo de la chingada", "Putito", "huevos", "madre", "puñal", "puñetas", "Ramero", "Traga", "Puto", "Puta", "Culo", "Culero", "Culeros", "Culera", "Culeras", "Pendejo", "Pendeja", "Pendejos", "Pendejas", "Maricon", "Maricón", "Maricones", "Mariconas"];
       const mensajeMinuscula = mensajeTexto.toLowerCase();
 
       const contieneGroseria = palabrasBloqueadas.some(palabra => {
@@ -619,6 +621,13 @@
       if (contieneGroseria) {
         input.value = '';
         document.getElementById('popup-groseria').classList.remove('hidden');
+        
+        const audio = document.getElementById('audio-troll');
+          if (audio) {
+            audio.volume = 1.0;    
+            audio.currentTime = 0;  
+            audio.play().catch(error => console.log("El navegador bloqueó el autoplay:", error));
+          }
         return;
       }
 
@@ -637,6 +646,11 @@
 
     function cerrarPopupGroseria() {
       document.getElementById('popup-groseria').classList.add('hidden');
+      const audio = document.getElementById('audio-troll');
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
     }
 
     function scrollChatAlFinal() {
